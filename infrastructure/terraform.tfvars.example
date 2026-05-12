@@ -1,0 +1,6 @@
+aws_region   = "us-east-1"
+project_name = "travelease-contact"
+environment  = "dev"
+
+sender_email   = "qasaitov@gmail.com"
+business_email = "art.saitov@yahoo.com"

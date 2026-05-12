@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TravelEase Contact Form</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page-container">
+    <section class="hero-section">
+      <div class="hero-content">
+        <p class="eyebrow">TravelEase Inc.</p>
+        <h1>Plan Your Next Trip with Confidence</h1>
+        <p class="hero-text">
+          Tell us about your dream vacation, cruise, or family getaway.
+          Our travel team will review your request and follow up with personalized options.
+        </p>
+      </div>
+    </section>
+
+    <section class="form-card">
+      <h2>Contact TravelEase</h2>
+      <p class="form-intro">
+        Submit your travel inquiry below. You will receive a confirmation email with a reference ID.
+      </p>
+
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Full Name *</label>
+          <input type="text" id="name" name="name" placeholder="Maria Johnson" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" placeholder="your.email@example.com" required />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="555-123-4567" />
+        </div>
+
+        <div class="form-group">
+          <label for="destination">Destination or Trip Type</label>
+          <input type="text" id="destination" name="destination" placeholder="Bahamas, Caribbean Cruise, Europe Tour" />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Travel Details *</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="6"
+            placeholder="Tell us about your travel dates, number of travelers, budget, preferred destination, and any special requests."
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit" id="submitButton">Submit Inquiry</button>
+
+        <div id="formMessage" class="form-message"></div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 TravelEase Inc. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

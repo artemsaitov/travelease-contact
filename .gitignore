@@ -1,0 +1,21 @@
+# Node.js
+node_modules/
+npm-debug.log
+package-lock.json
+
+# Lambda package files
+*.zip
+lambda.zip
+
+# Terraform local files
+.terraform/
+*.tfstate
+*.tfstate.*
+terraform.tfvars
+*.tfvars
+
+# OS files
+.DS_Store
+
+# Logs
+*.log
