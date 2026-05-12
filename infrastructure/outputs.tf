@@ -27,3 +27,13 @@ output "lambda_function_name" {
   description = "Lambda function name"
   value       = aws_lambda_function.submit_inquiry.function_name
 }
+
+output "sns_alert_topic_arn" {
+  description = "SNS topic ARN for CloudWatch alarm alerts"
+  value       = aws_sns_topic.alerts.arn
+}
+
+output "lambda_error_alarm_name" {
+  description = "CloudWatch alarm name for Lambda errors"
+  value       = aws_cloudwatch_metric_alarm.lambda_errors.alarm_name
+}

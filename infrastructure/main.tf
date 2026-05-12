@@ -264,3 +264,44 @@ resource "aws_lambda_permission" "allow_api_gateway" {
 
   source_arn = "${aws_apigatewayv2_api.contact_api.execution_arn}/*/*"
 }
+
+# SNS Topic for Alerts
+
+
+resource "aws_sns_topic" "alerts" {
+  name = "${local.name_prefix}-alerts"
+
+  tags = local.common_tags
+}
+
+resource "aws_sns_topic_subscription" "email_alert" {
+  topic_arn = aws_sns_topic.alerts.arn
+  protocol  = "email"
+  endpoint  = var.business_email
+}
+
+
+# CloudWatch Alarm for Lambda Errors
+
+resource "aws_cloudwatch_metric_alarm" "lambda_errors" {
+  alarm_name          = "${local.name_prefix}-lambda-errors"
+  alarm_description   = "Triggers when the TravelEase Lambda function has one or more errors."
+  comparison_operator = "GreaterThanOrEqualToThreshold"
+  evaluation_periods  = 1
+  metric_name         = "Errors"
+  namespace           = "AWS/Lambda"
+  period              = 60
+  statistic           = "Sum"
+  threshold           = 1
+  treat_missing_data  = "notBreaching"
+
+  dimensions = {
+    FunctionName = aws_lambda_function.submit_inquiry.function_name
+  }
+
+  alarm_actions = [
+    aws_sns_topic.alerts.arn
+  ]
+
+  tags = local.common_tags
+}
